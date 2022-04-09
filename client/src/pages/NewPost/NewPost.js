@@ -93,8 +93,8 @@ function NewPost() {
     console.log('City was selected');
 
     //check
-    setInputCity({ id: e.value, name: e.label }); //dawadaw
-    if (e.value) getUniversities(e.value); //damn
+    setInputCity({ id: e.value, name: e.label }); //test
+    if (e.value) getUniversities(e.value); //here
     setInputUni({});
     setUniOptions(initialValuesUni);
     setisDisabledUni(false);
