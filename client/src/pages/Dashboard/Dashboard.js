@@ -212,6 +212,8 @@ const Dashboard = () => {
     //params.push('university', e.value);
     //setSearchParams({ university: e.value });
     //setSearchParamsZ({ university: e.value });
+    //setSearchParamsZ({ university: e.value });
+    //setSearchParamsZ({ university: e.value });
     setSearchParams({
       city: inputCity.id,
       university: e.value,
