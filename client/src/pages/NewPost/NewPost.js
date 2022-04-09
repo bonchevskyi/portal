@@ -98,7 +98,6 @@ function NewPost() {
     setInputUni({});
     setUniOptions(initialValuesUni);
     setisDisabledUni(false);
-
     setInputDep({});
     setDepOptions(initialValuesDep);
     setisDisabledDep(true);
