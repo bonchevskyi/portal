@@ -94,7 +94,7 @@ function NewPost() {
 
     //check
     setInputCity({ id: e.value, name: e.label }); //dawadaw
-    if (e.value) getUniversities(e.value);
+    if (e.value) getUniversities(e.value); //damn
     setInputUni({});
     setUniOptions(initialValuesUni);
     setisDisabledUni(false);
