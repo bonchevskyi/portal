@@ -1,18 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { InfoSection } from '../../components';
-import { aboutObj } from '../../components/InfoSection/Data';
-import useAuth from '../../hooks/useAuth';
-import { useNavigate } from 'react-router-dom';
-import { Button } from '../../GlobalStyles';
 import { Container, WrapGlobal, FaqStyle } from '../../GlobalStyles';
 import Loading from '../../components/Loading/Loading';
 import Faq from 'react-faq-component';
-import { DARK, DEFAULT, BRIGHT } from '../../GlobalStyles';
 
 function FAQ() {
-  //const { signout } = useAuth();
-  const navigate = useNavigate();
-
   const [isLoading, setIsLoadiing] = useState(false);
 
   const loadScreen = (timeMS) => {
@@ -61,13 +52,9 @@ function FAQ() {
   };
 
   useEffect(() => {
-    const abortControler = new AbortController();
-
     loadScreen(700);
 
     return () => {
-      //console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!CLEANUP UNI!!!!!!!!!!!!!!!!!!!');
-      //isMounted = false;
       setIsLoadiing(false);
     };
   }, []);
