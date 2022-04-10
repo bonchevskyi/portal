@@ -2,11 +2,10 @@ import styled from 'styled-components';
 import { FaHandsHelping } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { DEFAULT, DARK, BRIGHT } from '../../GlobalStyles';
-import Dashboard from '../../pages/Dashboard/Dashboard';
 
 export const Nav = styled.nav`
-  //width: 100vw; // 100% view width
-  width: 100%; // 100% view width
+  //width: 100vw;
+  width: 100%;
   background: #0d2d10;
   height: 80px;
   display: flex;
@@ -22,24 +21,13 @@ export const NavbarContainer = styled.div`
   display: flex;
   justify-content: space-between;
   height: 80px;
-
   z-index: 1;
-  /* min-height: 50vh; */
   width: 100%;
-  //max-width: 100%;
   max-width: 90vw;
-  //max-width: 1700px;
-  //max-width: 1300px;
-
   margin-right: auto;
   margin-left: auto;
   padding-left: 10px;
   padding-right: 10px;
-  //background: red;
-
-  /* position: relative; */
-  /* padding-bottom: 60px; */
-  /* was padding 200px */
 
   @media screen and (max-width: 1100px) {
     padding-left: 30px;
@@ -92,7 +80,6 @@ export const NavMenu = styled.ul`
     opacity: 1;
     transition: all 0.5s ease;
     background: #0d2d10;
-    //background: red;
   }
 `;
 
@@ -100,9 +87,6 @@ export const NavItem = styled.li`
   //border: 2px solid red;
   height: 80px;
   width: fit-content;
-  //text-align: center;
-  //justify-content: center;
-  //align-items: center;
   border-bottom: 2px solid transparent;
 
   &:hover {

@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import useAuth from '../../hooks/useAuth';
 import axios from 'axios';
-//import axios from '../../axios-instance';
-//import GlobalStyles from '../../GlobalStyles';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
-
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import { DEFAULT, DARK, BRIGHT } from '../../GlobalStyles';
-import { Button, ButtonNav } from '../../GlobalStyles';
-//import Drop from '../Dropdown/Drop';
+import { ButtonNav } from '../../GlobalStyles';
 import {
   DropDownBtn,
   DropDownLi,
@@ -33,8 +29,6 @@ import {
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { GrLogout, GrLogin } from 'react-icons/gr';
 
-//AiFillPlusCircle, AiFillPlusSquare
-
 function Navbar() {
   const { auth, setAuth } = useAuth();
   const navigate = useNavigate();
@@ -44,14 +38,9 @@ function Navbar() {
   const [dropdown, setDropdown] = useState(false);
 
   const logout = async () => {
-    // if used in more components, this should be in context
-    // axios to /logout endpoint
-    console.log('<--------------!LOGGING OUT!---------------->');
     axios
       .get(`/logout`)
       .then((response) => {
-        //console.log('LOGGING OUT');
-        //console.log(response);
         navigate('/');
       })
       .catch((error) => {
@@ -60,7 +49,6 @@ function Navbar() {
 
     setAuth({});
     localStorage.removeItem('auth');
-    //localStorage.removeItem('user_id');
   };
 
   const [click, setClick] = useState(false);
