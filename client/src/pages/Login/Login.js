@@ -2,11 +2,8 @@ import { useState, useEffect } from 'react';
 import { Container, WrapGlobal } from '../../GlobalStyles';
 import useAuth from '../../hooks/useAuth';
 import axios from 'axios';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Loading from '../../components/Loading/Loading';
-
-//import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
-// import validate from '../../Validation/ValidateInfo';
 import {
   Form,
   FormButton,
@@ -30,14 +27,11 @@ function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [role_ID, setRoleID] = useState(0);
-  //var role_id = 0;
 
   const [loginStatus, setLoginStatus] = useState('');
   const [userData, setUserData] = useState('');
 
   const [isLoading, setIsLoadiing] = useState(false);
-
-  //const { signin } = useAuth();
 
   const loadScreen = (timeMS) => {
     setIsLoadiing(true);
@@ -68,14 +62,7 @@ function Login() {
           const authObj = { user_id, username, role_id };
           setAuth({ user_id, username, role_id });
           localStorage.setItem('auth', JSON.stringify(authObj));
-          //localStorage.setItem('user_id', JSON.stringify({ user_id }));
-          //signin(username, () => navigate(from, { replace: true }));
-          console.log('HERE we navigate: ', from);
-          // Po udanym logowaniu:
           navigate(from, { replace: true });
-
-          //console.log('User info:'userData);
-          //gotoProfile(response.data[0].username);
         }
       } catch (error) {
         console.log('Login User POST error: ', error);
@@ -87,7 +74,7 @@ function Login() {
     loadScreen(700);
 
     if (Object.keys(auth).length > 0) {
-      console.log('ALREADY LOGED IN!');
+      //console.log('ALREADY LOGED IN!');
       navigate(from, { replace: true });
     }
 
@@ -95,14 +82,6 @@ function Login() {
       setIsLoadiing(false);
     };
   }, []);
-
-  const gotoProfile = (userData) => {
-    //console.log('Sending data: ', userData);
-    //console.log('Sending username: ', userData.username);
-    //navigate('/profile', { state: userData });
-
-    navigate(`/profile/${userData}`);
-  };
 
   return (
     <>
