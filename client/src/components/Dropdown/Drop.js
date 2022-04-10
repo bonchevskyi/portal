@@ -1,7 +1,4 @@
-import React, { useState } from 'react';
-//import { MenuItems } from './MenuItems';
-//import './Dropdown.css';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import {
   DropDownBtn,
   DropDownContent,
@@ -10,8 +7,6 @@ import {
 } from './Drop.styled';
 
 function Drop() {
-  //const handleClick = (action) => {};
-
   return (
     <>
       <DropDownLi>
@@ -25,5 +20,4 @@ function Drop() {
     </>
   );
 }
-
 export default Drop;

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { NavBtn } from '../Navbar/Navbar.styled';
 import { DEFAULT, DARK, BRIGHT } from '../../GlobalStyles';
 
 export const DropDownContent = styled.div`
