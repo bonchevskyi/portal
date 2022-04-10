@@ -7,8 +7,6 @@ import { regulationsObj } from '../../components/InfoSection/Data';
 function Regulations() {
   const [isLoading, setIsLoadiing] = useState(false);
 
-  //const { signin } = useAuth();
-
   const loadScreen = (timeMS) => {
     setIsLoadiing(true);
     setTimeout(() => {
@@ -21,8 +19,6 @@ function Regulations() {
     loadScreen(700);
 
     return () => {
-      //console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!CLEANUP UNI!!!!!!!!!!!!!!!!!!!');
-      //isMounted = false;
       setIsLoadiing(true);
     };
   }, []);
