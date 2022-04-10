@@ -20,15 +20,10 @@ export const FooterContainer = styled.div`
   right: 0;
   bottom: 0;
 
-  //margin-top: auto;
-
   @media screen and (max-width: 890px) {
     height: 100%;
-    //min-height: 100vh;
-    //max-width: 100vw;
     margin-right: 0;
     margin-left: 0;
-    //background: red;
   }
 `;
 
@@ -41,8 +36,6 @@ export const FooterLinksContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-
-  //margin-top: auto;
 
   @media screen and (max-width: 890px) {
     flex-direction: column;
@@ -82,11 +75,8 @@ export const FooterSubscription = styled.section`
 `;
 
 export const FooterSubHeading = styled.p`
-  //font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',    'Lucida Sans', Arial, sans-serif;
   margin-bottom: 24px;
   font-size: 24px;
-
-  //margin-top: auto;
 `;
 
 export const FooterSubText = styled.p`
@@ -101,11 +91,7 @@ export const FooterLinksWrapper = styled.div`
   width: 100%;
   margin: 0 auto;
   justify-content: center;
-  //margin-left: 100px;
-  //margin-left: 100px;
   margin: auto;
-  //margin-top: auto;
-  //background: orange;
 
   @media screen and (max-width: 890px) {
     flex-direction: column;
@@ -119,15 +105,12 @@ export const FooterLinkItems = styled.div`
   margin-top: auto;
   display: flex;
   flex-direction: column;
-  //align-items: flex-start;
   align-items: center;
   margin: 10px;
   text-align: left;
   width: 200px;
   box-sizing: border-box;
   color: #fff;
-  //color: blue;
-  //background: blue;
 
   @media screen and (max-width: 420px) {
     margin: 0;
@@ -184,6 +167,5 @@ export const SocialIconLink = styled.a`
 `;
 
 export const WrapFooter = styled.div`
-  //background: orange;
   margin-top: auto;
 `;

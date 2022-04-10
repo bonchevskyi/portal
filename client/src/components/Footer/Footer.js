@@ -1,24 +1,13 @@
 import React from 'react';
-import { Button } from '../../GlobalStyles';
-import {
-  FaFacebook,
-  FaInstagram,
-  FaYoutube,
-  FaTwitter,
-  FaLinkedin,
-} from 'react-icons/fa';
+import { FaFacebook, FaYoutube, FaTwitter } from 'react-icons/fa';
 import {
   FooterContainer,
-  FooterSubscription,
-  FooterSubText,
-  FooterSubHeading,
   FooterLinksContainer,
   FooterLinksWrapper,
   FooterLinkItems,
   FooterLinkTitle,
   FooterLink,
   SocialMedia,
-  SocialMediaWrap,
   SocialLogo,
   SocialIcon,
   WebsiteRights,
