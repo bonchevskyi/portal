@@ -1,47 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import useAuth from '../../hooks/useAuth';
 import { Container, WrapGlobal } from '../../GlobalStyles';
-import {
-  useNavigate,
-  useLocation,
-  useParams,
-  Navigate,
-} from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import validateData from '../../Validation/ValidateEdit';
 import validatePwd from '../../Validation/ValidatePwd';
 import axios from 'axios';
 import Loading from '../../components/Loading/Loading';
-//import Cookies from 'js-cookie';
-//import withAuth from '../../components/withAuth';
 import { FormError } from '../Register/Register.styled';
 
 import {
   Text,
   Avatar,
   ProfileContainer,
-  ProfileDataElement,
   ProfileLabel,
   ProfileDataContainer,
   MainDiv,
   DataDiv,
-  ButtonDiv,
-  AvatarDiv,
-  SingleButton,
-  DateInfo,
 } from '../Profile/Profile.styled';
 
 import {
-  ProfileInput,
   ProfileDataInput,
   EditCustomSelect,
   EditCityLabel,
-  EditImgButton,
   EditSaveButton,
   EditButtonsDiv,
   AvatarDivEdit,
 } from './EditProfile.styled';
-
-//import { ProfileLabel } from '../NewPost/NewPost.styled';
 
 function EditProfile() {
   const navigate = useNavigate();
@@ -52,11 +36,9 @@ function EditProfile() {
   const [isLoading, setIsLoadiing] = useState(false);
 
   const loadScreen = (timeMS) => {
-    //console.log('========= LOADING STARTED');
     setIsLoadiing(true);
     setTimeout(() => {
       setIsLoadiing(false);
-      //console.log('========= LOADING ENDED');
     }, timeMS);
   };
 
@@ -70,21 +52,11 @@ function EditProfile() {
   };
 
   const [formValues, setFormValues] = useState(initialValues);
-
-  const [isSubmit, setIsSubmit] = useState(false);
-  const [profileData, setProfileData] = useState({});
-
-  const [isDisabledSave, setisDisabledSave] = useState(true);
-  const [isPassMenu, setisPassMenu] = useState(false);
   const [formErrors, setFormErrors] = useState({});
 
-  // const [firstname, setFirstName] = useState('');
-  // const [lastname, setLastName] = useState('');
-  // const [email, setEmail] = useState('');
-  // const [about, setAbout] = useState('');
-
-  // const [password, setPassword] = useState('');
-  // const [password2, setPassword2] = useState('');
+  const [isSubmit, setIsSubmit] = useState(false);
+  const [isDisabledSave, setisDisabledSave] = useState(true);
+  const [isPassMenu, setisPassMenu] = useState(false);
 
   var params = useParams();
 
@@ -124,38 +96,23 @@ function EditProfile() {
   }
 
   const handleMenuOpenCity = () => {
-    //console.log('MENU City was OPENED');
-    //setisDisabledUni(true);
-    //setisDisabledDep(false);
+    //console.log('City MENU was OPENED');
   };
 
   const handleChangeCity = (e) => {
-    //console.log('City was selected');
     setisDisabledSave(false);
-
-    //check
     setInputCity({ id: e.value, name: e.label });
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
-    //setisDisabledSave(false);
   };
 
-  // const handlePassChange = (e) => {
-  //   e.preventDefault();
-  //   setisPassMenu(!isPassMenu);
-  // };
-
-  // =================================
   const handleSave = (e) => {
     e.preventDefault();
     loadScreen(700);
-    //setFormErrors({});
     setisDisabledSave(true);
-
-    //loadScreen(700);
 
     if (isPassMenu === true) {
       console.log('User wanted to save password');
@@ -170,9 +127,6 @@ function EditProfile() {
     }
   };
 
-  //==================================
-
-  //console.log(newCreated);
   var imageName = require('../../images/avatar-nobg-white.png');
 
   useEffect(() => {
@@ -180,7 +134,7 @@ function EditProfile() {
     getCities();
 
     return () => {
-      console.log('!!!!!!!!!!!!!!CLEANUP EDIT LOADING!!!!!!!!!!!!!!!!!!!');
+      console.log('cleanup edit');
       //setInputCity({});
       //setCityOptions(initialValuesCity);
       //setIsLoadiing(false);
@@ -189,8 +143,6 @@ function EditProfile() {
 
   useEffect(() => {
     setisDisabledSave(true);
-    //let data = { firstname, lastname, about, email };
-
     if (
       formValues.fname.trim() ||
       formValues.lname.trim() ||
@@ -203,26 +155,17 @@ function EditProfile() {
       setisDisabledSave(false);
     }
     return () => {
-      //console.log('======= LOADING 22222222222 ======');
-      //setIsLoadiing(false);
+      //console.log('======= LOADING ======');
+      setIsLoadiing(false);
     };
   }, [formValues]);
 
   useEffect(() => {
-    console.log('>>>>>FORM ERRORS CHANGED!<<<<<<');
-    //setisDisabledSave(true);
     if (Object.keys(formErrors).length === 0 && isSubmit) {
       console.log('=====0 ERRORS======');
       console.log('Pass menu?', isPassMenu);
-
-      //setisDisabledSave(false);
-
       if (isPassMenu === true) {
         const changePassword = async () => {
-          //console.log(password);
-          //console.log(user_id.user_id);
-          //const jsonID = localStorage.getItem('user_id');
-          //const user_id = JSON.parse(jsonID);
           try {
             const response = await axios.post('/change-pass', {
               passwordPass: formValues.password,
@@ -230,23 +173,13 @@ function EditProfile() {
             });
             const data = response.data;
             console.log(data);
-            //setAuth({});
-            //localStorage.removeItem('auth');
-            //navigate(`/profile/${auth.user_id}`);
-
-            //localStorage.removeItem('user_id');
-            //navigate('/');
           } catch (error) {
             console.log('Password change error: ', error);
           }
         };
         changePassword();
         navigate(`/profile/${usernamePar}`);
-        //setAuth({});
-        //localStorage.removeItem('auth');
         alert('SENDING PASSWORD');
-        //console.log('NAVIGATING TO: /profile/asd', auth.username);
-        //console.log(auth.username);
       } else if (isPassMenu === false) {
         var objToSend = {};
 
@@ -266,9 +199,6 @@ function EditProfile() {
           objToSend.city_id = inputCity.id;
         }
 
-        console.log('FINAL OBJECT');
-        console.log(objToSend);
-
         const changeData = async () => {
           try {
             const response = await axios.post('/change-data', {
@@ -277,23 +207,16 @@ function EditProfile() {
             });
             const data = response.data;
             console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>DATA WAS SENT');
-            //navigate('/');
           } catch (error) {
             console.log('Data change error: ', error);
           }
         };
         changeData();
-        //navigate(`/profile/${auth.username}`);
-        //alert('SENDING DATA');
 
         alert('Sending updated data! Redirecting...');
         navigate(`/profile/${usernamePar}`);
       }
     }
-    return () => {
-      //console.log('============ LOADING 3========'); //
-      //setIsLoadiing(false);
-    };
   }, [formErrors]);
 
   return (
@@ -380,10 +303,6 @@ function EditProfile() {
                         placeholder={'Nowe miasto'}
                         noOptionsMessage={() => 'Nie znaleziono opcji!'}
                         defaultValue={selectedCity.value}
-                        //getOptionLabel={(e) => console.log(e)}
-                        //getOptionValue={(e) => console.log(e)}
-                        // loadOptions={cityList}
-                        // onInputChange={handleInputChange}
                         require
                       />
                     </ProfileDataContainer>
@@ -428,8 +347,6 @@ function EditProfile() {
                 <EditSaveButton
                   background='orange'
                   onClick={() => {
-                    //setFormValues(initialValues);
-
                     clearFields();
                   }}
                 >
