@@ -3,30 +3,19 @@ import styled from 'styled-components';
 import { DEFAULT, DARK, BRIGHT } from '../../GlobalStyles';
 
 export const UniList = styled.div`
-  //border: 2px solid red;
   display: grid;
-  //grid-template-columns: auto auto auto;
   padding: 10px;
   width: auto;
-  //NEW
   grid-template-columns: auto auto auto;
   //grid-template-rows: auto auto auto;
   grid-gap: 15px;
 
   @media screen and (max-width: 1200px) {
     grid-template-columns: auto auto;
-    //max-width: 100%;
-    //flex-basis: 100%;
-    //flex-direction: column;
-    //justify-content: center;
   }
 
   @media screen and (max-width: 600px) {
     grid-template-columns: auto;
-    //max-width: 100%;
-    //flex-basis: 100%;
-    //flex-direction: column;
-    //justify-content: center;
   }
 `;
 
@@ -50,7 +39,6 @@ export const UniListElem = styled.button`
 `;
 
 export const UniListRow = styled.p`
-  /* content: ""; */
   display: table;
   clear: both;
 `;

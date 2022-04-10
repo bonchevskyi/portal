@@ -1,15 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, WrapGlobal } from '../../GlobalStyles';
-import { Link } from 'react-router-dom';
 import Loading from '../../components/Loading/Loading';
-import {
-  UniList,
-  UniListColumn,
-  UniListElem,
-  UniListP,
-  UniListRow,
-} from './Cities.styled';
+import { UniList, UniListElem } from './Cities.styled';
 
 function Cities() {
   const [cityList, setCityList] = useState([]);
@@ -34,8 +27,6 @@ function Cities() {
   };
 
   useEffect(() => {
-    //const abortControler = new AbortController();
-
     loadScreen(700);
     getCities();
 
@@ -51,8 +42,6 @@ function Cities() {
       </UniListElem>
     ));
   };
-
-  // console.log('EZ');
 
   return (
     <>
