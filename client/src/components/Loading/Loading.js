@@ -1,21 +1,9 @@
 import React from 'react';
-//import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import { Oval } from 'react-loader-spinner';
 import { Container, WrapGlobal } from '../../GlobalStyles';
 import { LoadingWrap, Wrap } from './Loading.styled';
 
-//import { useState } from 'react';
-
 const Loading = () => {
-  //   const [isLoading, setIsLoadiing] = useState(false);
-
-  // const loadScreen = (timeMS) => {
-  //   setIsLoadiing(true);
-  //   setTimeout(() => {
-  //     setIsLoadiing(false);
-  //   }, timeMS);
-  // };
-
   return (
     <WrapGlobal>
       <Container position='centered' align='centered'>
@@ -33,5 +21,4 @@ const Loading = () => {
     </WrapGlobal>
   );
 };
-
 export default Loading;

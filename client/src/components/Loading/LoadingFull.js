@@ -1,10 +1,6 @@
 import React from 'react';
-//import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import { Oval } from 'react-loader-spinner';
-//import { Container, WrapGlobal } from '../../GlobalStyles';
 import { LoadingWrap, LoadingContainer } from './LoadingFull.styled';
-
-//import { useState } from 'react';
 
 const LoadingFull = () => {
   return (
@@ -24,5 +20,4 @@ const LoadingFull = () => {
     </LoadingWrap>
   );
 };
-
 export default LoadingFull;
