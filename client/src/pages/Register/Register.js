@@ -86,13 +86,7 @@ function Register() {
     e.preventDefault();
     loadScreen(700);
     const reslt = validate(formValues);
-    //console.log('======= RESULT HANDLE: ', reslt);
-    //console.log('RESULT: ', reslt);
-    //console.log('reslt.username = ', reslt.username);
     setFormErrors(reslt);
-    //formErrors.username = reslt.username;
-    //console.log('USERNAME in handleSubmit - ', formErrors.username);
-    //console.log('Form errors handle submit ', formErrors);
     setIsSubmit(true);
   };
 
@@ -112,7 +106,6 @@ function Register() {
   }, []);
 
   useEffect(() => {
-    console.log('>>>>>FORM ERRORS CHANGED!<<<<<<');
     if (Object.keys(formErrors).length === 0 && isSubmit) {
       const registerUser = async () => {
         try {
@@ -143,11 +136,6 @@ function Register() {
       ) : (
         <WrapGlobal>
           <Container position='centered' align='centered'>
-            {/* {Object.keys(formErrors).length === 0 && isSubmit ? (
-              <div className='ui message success'>REGISTERED successfully</div>
-            ) : (
-              <div></div>
-            )} */}
             <FormContent>
               <FormH1>Rejestracja</FormH1>
               <Form onSubmit={handleSubmit}>

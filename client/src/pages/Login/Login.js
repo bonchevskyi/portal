@@ -27,10 +27,6 @@ function Login() {
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
 
-  {
-    /* ... */
-  }
-
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [role_ID, setRoleID] = useState(0);
@@ -53,12 +49,8 @@ function Login() {
   const loginUser = async (e) => {
     loadScreen(700);
     e.preventDefault();
-
-    //console.log('Username = ', username);
-    //console.log('Password = ', password);
-
     if (!username.trim() || !password.trim()) {
-      setLoginStatus('Provide profile or username!');
+      setLoginStatus('Podaj wszystkie dane do logowania!');
     } else {
       try {
         const response = await axios.post('/login', {
@@ -67,40 +59,26 @@ function Login() {
         });
         if (!Array.isArray(response.data)) {
           setLoginStatus(response.data);
-          //console.log(Array.isArray(response.data));
         } else {
-          //console.log('==== Response DATA =====', response.data[0]);
-
-          //console.log('DATA: ', response.data[0]);
           setLoginStatus(response?.data[0]?.username);
           setRoleID(response?.data[0]?.role_id);
-          //console.log('RESP ID');
-          //console.log(response?.data[0]?.role_id);
           var role_id = response?.data[0]?.role_id;
-
           var user_id = response?.data[0]?.id;
-
-          //console.log(user_id);
           setUserData(response.data[0]);
-
           const authObj = { user_id, username, role_id };
-
           setAuth({ user_id, username, role_id });
           localStorage.setItem('auth', JSON.stringify(authObj));
           //localStorage.setItem('user_id', JSON.stringify({ user_id }));
-
           //signin(username, () => navigate(from, { replace: true }));
-
           console.log('HERE we navigate: ', from);
-
+          // Po udanym logowaniu:
           navigate(from, { replace: true });
 
-          //navigate('/profile');
           //console.log('User info:'userData);
           //gotoProfile(response.data[0].username);
         }
       } catch (error) {
-        console.log('Login POST data ERROR: ', error);
+        console.log('Login User POST error: ', error);
       }
     }
   };

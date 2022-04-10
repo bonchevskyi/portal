@@ -189,12 +189,6 @@ function NewPost() {
   const createPost = async (e) => {
     e.preventDefault();
     loadScreen(700);
-    //console.log('CREATING POST!');
-    //console.log(title);
-    //console.log(textarea);
-    //console.log(inputCity.id);
-    //console.log(inputUni.id);
-    //console.log(inputDep.id);
 
     //console.log('====formValues===');
     //console.log(formValues);

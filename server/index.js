@@ -533,9 +533,6 @@ app.post('/login', (req, res) => {
     }
     if (result.length > 0) {
       bcrypt.compare(password, result[0].password, (error, response) => {
-        {
-          /* ... */
-        }
         if (response) {
           req.session.username = result[0].username;
           req.session.user = result;
@@ -546,18 +543,13 @@ app.post('/login', (req, res) => {
             role_id: result[0].role_id,
             user_id: result[0].id,
           };
-          {
-            /* ... */
-          }
-          //console.log('SESSION: ', req.session);
-          //console.log('Session username', req.session.username);
           res.send(result);
         } else {
-          res.send('Wrong username/password combination!');
+          res.send('Niewłaściwa kombinacja nazwy użytkownika/hasła!');
         }
       });
     } else {
-      res.send('User doesnt exist!');
+      res.send('Użytkownik nie istnieje w systemie!');
     }
   });
 });

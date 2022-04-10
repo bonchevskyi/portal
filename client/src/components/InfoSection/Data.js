@@ -55,7 +55,7 @@ export const homeObjFour = {
   lightText: true,
   lightTextDesc: true,
   headline: 'Szybko, łatwo i efektywnie ',
-  buttonLabel: 'Czego czekasz?',
+  buttonLabel: 'Czego oczekujesz?',
   imgStart: 'start',
   img: require('../../images/svg-3.svg').default,
   alt: 'Vault',
