@@ -6,14 +6,10 @@ import Loading from '../../components/Loading/Loading';
 import { Container, WrapGlobal, FullLine } from '../../GlobalStyles';
 import { InfoSection } from '../../components';
 import {
-  CreateFormContent,
-  CreateFormH1,
   WrapperTextArea,
-  TextArea,
   PostTitle,
   PostText,
   PostTextLabelAuthor,
-  PostTextLabelDate,
   PostTextWrap,
   DataPostPath,
   ReplyLabel,
@@ -32,11 +28,7 @@ import { noPostObj, noRepliesObj } from '../../components/InfoSection/Data';
 
 function Post() {
   const navigate = useNavigate();
-
-  const { auth, setAuth } = useAuth();
-
-  //const { search } = useLocation();
-  //console.log('SEARCH: ', search);
+  const { auth } = useAuth();
 
   var params = useParams();
   console.log('PARAMS: ', params);
@@ -63,33 +55,25 @@ function Post() {
 
   const charMaxArea = 2048;
 
-  //console.log('PARAMS: ', params);
-
   const [isLoading, setIsLoadiing] = useState(false);
 
   const loadScreen = (timeMS) => {
     setIsLoadiing(true);
-    //console.log('LOADING STARTED');
     setTimeout(() => {
       setIsLoadiing(false);
-      //console.log('LOADING ENDED');
     }, timeMS);
   };
 
   const getPostData = async () => {
-    console.log('POST ID IN HERE', postID);
     try {
       const response = await axios.get('/post/get', {
         params: {
           postID: postID,
         },
       });
-      console.log('DATA:', response?.data[0]);
       if (Object.keys(response?.data[0]).length > 0) {
-        console.log('DATA EXIST');
         setPostExist(true);
       } else {
-        console.log('NO DATA EXIST');
         setPostExist(false);
       }
       setPostData(response?.data[0]);
@@ -99,7 +83,6 @@ function Post() {
   };
 
   const getPostReplies = async () => {
-    console.log('POST ID IN HERE', postID);
     try {
       const response = await axios.get('/reply/get', {
         params: {
@@ -107,14 +90,11 @@ function Post() {
         },
       });
       const data = response.data;
-      console.log('== == == REPLY DATA ===', data);
       if (data.length > 0) {
-        console.log('REPLIES EXIST');
         const replys = Array.from(data);
         setReplyData(replys);
         setIsRepliesZero(false);
       } else {
-        console.log('NO REPLIES!!!!');
         setIsRepliesZero(true);
       }
     } catch (error) {
@@ -123,10 +103,7 @@ function Post() {
   };
 
   const handleAdd = () => {
-    //console.log('========================e======================');
-    //console.log(e);
     setShowComment(!showComment);
-    // var property = document.getElementById(btnAdd);
     if (showComment) {
       setDisplayBtn('none');
       setBtnWidth('100%');
@@ -144,9 +121,6 @@ function Post() {
     getPostReplies();
 
     return () => {
-      console.log(
-        '!!!!!!!!!!!!!!!!!!!!!!!!!!CLEANUP DASHBOARD!!!!!!!!!!!!!!!!!!!'
-      );
       setIsLoadiing(false);
     };
   }, []);
@@ -163,8 +137,6 @@ function Post() {
   const postReply = async (e) => {
     e.preventDefault();
     loadScreen(700);
-    //console.log('WE GOT:');
-    //console.log(commentarea);
     var usrID = auth.user_id;
 
     try {
@@ -227,11 +199,7 @@ function Post() {
                       )}
                     </PostTextLabelAuthor>
                   </PostTextWrap>
-                  <PostText
-                    id='textarea'
-                    //value={textarea}
-                    placeholder='Type something...'
-                  >
+                  <PostText id='textarea' placeholder='Type something...'>
                     {postData.text}
                   </PostText>
                 </WrapperTextArea>
@@ -317,7 +285,6 @@ function Post() {
             )}
           </Container>
         </WrapGlobal>
-        //LOADIN END
       )}
     </>
   );
