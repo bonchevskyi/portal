@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Loading from './Loading/Loading';
-import { Link } from 'react-router-dom';
 import { Container, WrapGlobal } from '../GlobalStyles';
 import { notAuthObj } from './InfoSection/Data';
 import InfoSection from './InfoSection/InfoSection';
@@ -16,8 +15,6 @@ const NotFound = () => {
   };
 
   useEffect(() => {
-    //const abortControler = new AbortController();
-
     loadScreen(700);
 
     return () => {
