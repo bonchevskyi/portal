@@ -1,15 +1,12 @@
 import styled from 'styled-components';
-import { DEFAULT, DARK, BRIGHT, Button } from '../../GlobalStyles';
+import { DEFAULT, DARK, BRIGHT } from '../../GlobalStyles';
 
 export const InfoSec = styled.div`
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* padding: 59px 0 0 0; was 160px 0 */
-  /* top | right | bottom | left */
   padding: 0 0 0 0;
-  //background: ${({ lightBg }) => (lightBg ? '${DEFAULT}' : '${DEFAULT}')};
   background: transparent;
 `;
 
@@ -47,21 +44,14 @@ export const InfoRow = styled.div`
 
 export const InfoColumn = styled.div`
   //border: solid 2px yellow;
-  //margin-bottom: 0;
   height: 350px;
-
   margin: 5px;
   padding-right: 15px;
   padding-left: 15px;
   justify-content: center;
   align-items: center;
   padding: 10px;
-  //flex: 1;
-  //max-width: 50%;
   flex-basis: 30%;
-  //flex-basis: auto;
-
-  /* flex-basis: 50%; */
 
   @media screen and (max-width: 768px) {
     max-width: 100%;
@@ -76,15 +66,10 @@ export const TextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  //max-width: 70vw;
   width: 800px;
   height: 100%;
   justify-content: center;
-
-  //max-width: 500px;
-  //max-height: 250px;
   padding-top: 0;
-  //padding-bottom: 60px;
 
   @media screen and (max-width: 768px) {
     padding-bottom: 20px;
@@ -106,7 +91,6 @@ export const InfoButton = styled.button`
 `;
 
 export const Heading = styled.h1`
-  //background: red;
   margin-bottom: 44px;
   font-size: 38px;
   line-height: 1.1;
@@ -115,7 +99,7 @@ export const Heading = styled.h1`
 
   /* MOD */
   @media screen and (max-width: 768px) {
-    font-size: 24px; /* MOD */
+    font-size: 24px;
   }
 `;
 
@@ -125,8 +109,6 @@ export const ImgWrapper = styled.div`
   height: 100%;
   align-items: center;
   justify-content: center;
-  //max-width: 250px;
-  //max-height: 250px;
   display: flex;
   margin: 0;
   padding: 10px;
@@ -147,20 +129,3 @@ export const Img = styled.img`
     padding-bottom: 0;
   }
 `;
-
-// export const Subtitle = styled.p`
-//   max-width: 440px;
-//   margin-bottom: 35px;
-//   font-size: 18px;
-//   line-height: 24px;
-//   color: ${({ lightTextDesc }) => (lightTextDesc ? 'black' : 'black')};
-// `;
-
-// export const TopLine = styled.div`
-//   color: ${({ lightTopLine }) => (lightTopLine ? 'black' : 'black')};
-//   font-size: 18px;
-//   line-height: 16px;
-//   font-weight: 700;
-//   letter-spacing: 1.4px;
-//   margin-bottom: 16px;
-// `;
