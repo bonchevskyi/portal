@@ -1,23 +1,19 @@
 import styled from 'styled-components';
 import { Container, Button } from '../../GlobalStyles';
-//import { Link } from 'react-router-dom';
 import { DEFAULT, DARK, BRIGHT } from '../../GlobalStyles';
 
 export const ProfileContainer = styled(Container)`
   //border: 5px solid red;
   display: flex;
   margin: 0;
-  //flex-direction: column;
 `;
 
 export const MainDiv = styled.div`
   //border: 1px solid red;
   margin-top: auto; //MOD to 0 or 10px
   margin-bottom: auto;
-
   display: flex;
   padding: 10px;
-  //margin-bottom: 10px; ;
 `;
 
 export const DataDiv = styled.div`
@@ -44,7 +40,6 @@ export const ProfileDataContainer = styled.div`
   color: #fff;
   font-size: 16px;
   text-align: center;
-  //background: green;
   margin-bottom: 0px;
   margin-left: auto;
   margin-right: auto;
@@ -54,24 +49,17 @@ export const ProfileDataContainer = styled.div`
 `;
 
 export const ProfileLabel = styled.h1`
-  //margin-bottom: 16px;
-  //border-radius: 15px;
   //border: 1px solid red;
   color: ${DARK};
   font-size: 24px;
   padding-left: 10px;
   text-align: center;
-  //background: yellow;
   flex: 2;
-  //width: 300px;
 `;
 
 export const ProfileDataElement = styled.div`
-  //margin-bottom: 25px;
   //border: 1px solid red;
   color: ${DARK};
-  //color: black;
-  //min-height: ;
   height: auto;
   font-size: 22px;
   font-weight: 600;
@@ -81,7 +69,6 @@ export const ProfileDataElement = styled.div`
   border-radius: 5px;
   padding: 5px 0;
   flex: 5;
-  //width: 300px;
 `;
 
 export const AvatarDiv = styled.div`
@@ -96,7 +83,6 @@ export const Avatar = styled.img`
   src: imageName;
   border-radius: 50%;
   margin-top: 50px;
-  // margin: 30px 0;
   width: 200px;
   height: 200px;
   flex: 1;
@@ -127,8 +113,6 @@ export const ButtonDiv = styled.div`
   display: flex;
   flex-direction: column;
   width: 10%;
-  //justify-content: center;
-  //margin: auto;
   margin-right: auto;
   margin-left: auto;
 `;
@@ -145,7 +129,6 @@ export const SingleButton = styled(Button)`
   align-items: center;
   width: fit-content;
   margin-top: 0;
-  //margin-bottom: auto;
   margin-left: auto;
   margin-right: auto;
   margin: auto;

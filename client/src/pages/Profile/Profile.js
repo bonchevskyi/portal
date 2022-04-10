@@ -1,18 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Container, WrapGlobal } from '../../GlobalStyles';
-import {
-  useNavigate,
-  useLocation,
-  useParams,
-  Navigate,
-} from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Loading from '../../components/Loading/Loading';
-//import Cookies from 'js-cookie';
-//import withAuth from '../../components/withAuth';
 
 import {
-  Wrap,
   Text,
   Avatar,
   ProfileContainer,
@@ -21,19 +13,13 @@ import {
   ProfileDataContainer,
   MainDiv,
   DataDiv,
-  ButtonDiv,
   AvatarDiv,
-  SingleButton,
   DateInfo,
 } from './Profile.styled';
 import useAuth from '../../hooks/useAuth';
 
-//import { ProfileLabel } from '../NewPost/NewPost.styled';
-
 function Profile() {
   const navigate = useNavigate();
-
-  const { auth } = useAuth();
 
   const [isLoading, setIsLoadiing] = useState(false);
 
@@ -48,38 +34,21 @@ function Profile() {
 
   var params = useParams();
 
-  //console.log('Params ====== ', params);
-  //const userID = Cookies.get('userID');
-  //console.log('USER ID: ', userID);
-  // const { itemId, otherParam } = route.params;
-
-  //var navigate = useNavigate();
-  //const location = useLocation();
-
-  //console.log(location.userData);
-
-  //console.log('getData = ', userProfile);
-
   useEffect(() => {
     loadScreen(700);
     const userProfile = params.username;
-    //console.log('getData = ', userProfile);
     axios
       .post(`/profile/`, {
         userProfile: userProfile,
       })
       .then((response) => {
-        //console.log('Profile response: ', response.data.invalidUser);
         if (response.data.invalidUser === true) {
           navigate('/404');
         } else {
-          console.log(response.data[0]);
           setProfileData(response.data[0]);
         }
       });
     return () => {
-      //console.log('!!!!!!!CLEANUP !!!!!!!!!!!!!!!!!!!');
-      //isMounted = false;
       setIsLoadiing(false);
     };
   }, []);
@@ -104,7 +73,6 @@ function Profile() {
     options
   );
 
-  //console.log(newCreated);
   var imageName = require('../../images/avatar-nobg-white.png');
 
   return (
@@ -166,23 +134,7 @@ function Profile() {
                         : 'Brak informacji...'}
                     </ProfileDataElement>
                   </ProfileDataContainer>
-
-                  {/* <ProfileDataContainer>
-                  {' '}
-                  <ProfileLabel>Created </ProfileLabel>
-                  <ProfileDataElement>{profileData.created}</ProfileDataElement>
-                </ProfileDataContainer>
-
-                <ProfileDataContainer>
-                  <ProfileLabel>Updated </ProfileLabel>
-                  <ProfileDataElement>{profileData.updated}</ProfileDataElement>
-                </ProfileDataContainer> */}
                 </DataDiv>
-                {/* <ButtonDiv>
-                  <SingleButton background='orange '>EDIT</SingleButton>
-                   <SingleButton background='orange'>CHANGE</SingleButton> 
-                   <SingleButton background='red'>DELETE</SingleButton> 
-                </ButtonDiv> */}
               </MainDiv>
             </ProfileContainer>
           </Container>
