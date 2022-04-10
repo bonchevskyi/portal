@@ -1,13 +1,8 @@
 import axios from 'axios';
-//import { useEffect, useState } from 'react';
 
 export default function ValidateInfo(values) {
   const errors = {};
-  //const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
   const usernameRegex = /^[a-zA-Z0-9\-_]+$/;
-  //var whichOneSend = 0;
-
-  //const [loading, setLoading] = useState(false);
 
   // CHECK FOR UNIQUE USERNAME AND EMAIl
 
@@ -83,8 +78,6 @@ export default function ValidateInfo(values) {
     errors.password2 = 'Hasła nie pasują do siebie!';
   }
 
-  // /\d/.test("Hello123World!")    TRUE
-
   if (/\d/.test(values.fname)) {
     errors.fname = 'Imię jest nieprawidłowe!';
   }
@@ -92,8 +85,6 @@ export default function ValidateInfo(values) {
   if (/\d/.test(values.lname)) {
     errors.lname = 'Nazwisko jest nieprawidłowe!';
   }
-
-  //console.log('ERRORS BEFORE RETURN: ', errors);
 
   return errors;
 }

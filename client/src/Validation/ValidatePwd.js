@@ -15,7 +15,5 @@ export default function ValidateEdit(values) {
     errors.password2 = 'Hasła nie pasują do siebie!';
   }
 
-  console.log('===========ERRORS IN PWD BEFORE RETURN: ', errors);
-
   return errors;
 }
