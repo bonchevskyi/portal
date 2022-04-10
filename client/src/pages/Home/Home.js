@@ -6,15 +6,10 @@ import {
   homeObjFour,
 } from '../../components/InfoSection/Data';
 import { InfoSection } from '../../components';
-import useAuth from '../../hooks/useAuth';
-import { useNavigate } from 'react-router-dom';
-import { Button, Container, WrapGlobal } from '../../GlobalStyles';
+import { Container, WrapGlobal } from '../../GlobalStyles';
 import Loading from '../../components/Loading/Loading';
 
 function Home() {
-  const { setAuth } = useAuth();
-  const navigate = useNavigate();
-
   const [isLoading, setIsLoadiing] = useState(false);
 
   const loadScreen = (timeMS) => {
@@ -28,8 +23,6 @@ function Home() {
     loadScreen(700);
 
     return () => {
-      //console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!CLEANUP UNI!!!!!!!!!!!!!!!!!!!');
-      //isMounted = false;
       setIsLoadiing(false);
     };
   }, []);
