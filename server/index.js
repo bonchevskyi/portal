@@ -22,7 +22,6 @@ app.use(
 );
 const oneDay = 1000 * 60 * 60 * 24; //in ms
 // SESSION
-// SMTH NEW
 app.use(
   session({
     key: 'SID',
@@ -73,9 +72,7 @@ app.get('/get-cities', (req, res) => {
 
 //GET city default
 app.post('/get-city-label', (req, res) => {
-  //console.log('WE ARE GETTING CITIES!');
   const city_id = req.body.city_id;
-  //console.log(city_id);
   db.query('SELECT name FROM city WHERE id = ?', city_id, (err, result) => {
     if (err) {
       console.log(err);
@@ -103,9 +100,7 @@ app.post('/get-universities', (req, res) => {
 
 //GET university default
 app.post('/get-university-label', (req, res) => {
-  //console.log('WE ARE GETTING CITIES!');
   const university_id = req.body.university_id;
-  //console.log(city_id);
   db.query(
     'SELECT name FROM university WHERE id = ?',
     university_id,
@@ -137,9 +132,7 @@ app.post('/get-departments', (req, res) => {
 
 //GET department default
 app.post('/get-department-label', (req, res) => {
-  //console.log('WE ARE GETTING CITIES!');
   const department_id = req.body.department_id;
-  //console.log(city_id);
   db.query(
     'SELECT name FROM department WHERE id = ?',
     department_id,
@@ -153,9 +146,7 @@ app.post('/get-department-label', (req, res) => {
   );
 });
 
-//==========================================================
-
-// SEARCH POSTS !!!!!!!!!!!!
+// SEARCH POSTS
 app.post('/search', (req, res) => {
   const city_id = req.query?.city_id;
   const university_id = req.query?.university_id;
@@ -188,7 +179,6 @@ app.post('/search', (req, res) => {
     if (err) {
       console.log('Search error: ', err);
     } else if (result.length > 0) {
-      //console.log('======== Result: ', result);
       res.send(result);
     } else {
       res.send('');
@@ -239,7 +229,6 @@ app.post('/reply/new', (req, res) => {
 app.get('/reply/get', (req, res) => {
   const post_id = req.query.postID;
 
-  //const sqlQuery = 'SELECT * FROM replies WHERE post_id = ?';
   const sqlQuery =
     'SELECT r.id, r.post_id, r.user_id, us.username, r.text, r.created, r.updated  FROM replies AS r  INNER JOIN user AS us ON r.user_id = us.id WHERE post_id = ?';
 
@@ -263,16 +252,12 @@ app.post('/post/new', (req, res) => {
   const university_id = req.body.university_id;
   const department_id = req.body.department_id;
 
-  //console.log('USER_ID BEFORE INSERT:', user_id);
-  //console.log('TypeT:', user_id);
-
   db.query(
     'INSERT INTO posts (user_id, title, text, city_id, university_id, department_id) VALUES (?,?,?,?,?,?) ',
     [user_id, title, text, city_id, university_id, department_id],
     (err, result) => {
       if (err) {
         console.log(err);
-        //res.send(err.sqlMessage);
       } else {
         res.send('Post has been created!');
       }
@@ -316,9 +301,6 @@ app.post('/change-pass', (req, res) => {
   const password = req.body.passwordPass;
   const user_id = req.body.user_idPass;
 
-  //console.log('Password', password);
-  //console.log('User_id', user_id);
-
   bcrypt.hash(password, saltRounds, (err, hash) => {
     if (err) {
       console.log(err);
@@ -344,24 +326,11 @@ app.post('/change-pass', (req, res) => {
 app.post('/change-data', (req, res) => {
   const user_id = req.body.user_idData;
   const data = req.body.dataObj;
-  //const user_id = req.body.user_idPass;
   const email = data?.email;
   const city_id = data?.city_id;
   const firstname = data?.firstname;
   const lastname = data?.lastname;
   const about = data?.about;
-
-  //console.log('DATA ', data);
-
-  console.log('SERVER GOT EDIT DATA', [
-    user_id,
-    email,
-    city_id,
-    firstname,
-    lastname,
-    about,
-  ]);
-  //console.log('User_id', user_id);
 
   if (email) {
     db.query(
@@ -446,21 +415,15 @@ app.post('/unique', (req, res) => {
     'SELECT IF (COUNT(*) > 0, 1, 2) as uniqueInfo FROM user  WHERE username = ?;';
   const sqlQueryEmail =
     'SELECT IF (COUNT(*) > 0, 3, 4) as uniqueInfo FROM user  WHERE email = ?;';
-  //const sqlQueryBoth =    '(SELECT IF (COUNT(*) > 0, 1, 2) as uniqueInfo FROM user  WHERE username = ?) UNION (SELECT IF (COUNT(*) > 0, 3, 4) as uniqueInfo FROM user  WHERE email = ?);';
-
-  //console.log('NEW REQUEST!!!!!!===========');
-  //console.log('VALUES: ', [username, email]);
 
   if (email == null && username != null) {
-    //console.log('Sending Username!');
     sqlQuery = sqlQueryUser;
     params = [username];
   } else if (username == null && email != null) {
-    //console.log('Sending Email!');
     sqlQuery = sqlQueryEmail;
     params = [email];
   } else {
-    console.log('WHAT?');
+    console.log('WHAT is going on?');
     if (err) throw err;
   }
 
@@ -470,26 +433,18 @@ app.post('/unique', (req, res) => {
     } else if (result.length > 0) {
       console.log('Result: ', result);
       res.send(result);
-      //res.send({ uniqueUser: false });
     } else {
       console.log('else');
     }
   });
 });
 
-//const userProfile = req.body.userProfile;
-
 //Profile LOAD
 app.post(`/profile`, (req, res) => {
-  //console.log(req.body);
   const userProfile = req.body.userProfile;
-  //console.log('Link user: ', userProfile);
-  //console.log('Session user: ', req.session.userID);
-
   if (userProfile != req.session.username) {
     res.send({ invalidUser: true });
   } else {
-    //const sqlQuery = 'SELECT * FROM user WHERE username = ?;';
     const sqlQuery =
       'SELECT role.role_name, username, email, city.name as city,  firstname, lastname, about, created, updated FROM user INNER JOIN role ON user.role_id = role.id INNER JOIN city ON user.city_id = city.id WHERE username = ?;';
 
@@ -502,7 +457,6 @@ app.post(`/profile`, (req, res) => {
       }
     });
   }
-  //console.log('User profile: ', userProfile);
 });
 
 //Check LOGIN when refresh
@@ -536,7 +490,6 @@ app.post('/login', (req, res) => {
         if (response) {
           req.session.username = result[0].username;
           req.session.user = result;
-          //NEW
           req.session.loggedIn = true;
           req.session.auth = {
             username: result[0].username,
