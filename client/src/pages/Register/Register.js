@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, WrapGlobal } from '../../GlobalStyles';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-//import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import validate from '../../Validation/ValidateInfo';
-//import IsLoadingHOC from '../../components/Loading/IsLoadingHOC';
 import Loading from '../../components/Loading/Loading';
 
 import {
@@ -17,7 +15,6 @@ import {
   FormOption,
   FormH1,
   FormError,
-  Wrap,
   FormLink,
   Text,
   ErrorWrap,
@@ -25,27 +22,15 @@ import {
 
 function Register() {
   var navigate = useNavigate();
-  //const { setLoading } = props;
 
-  //GET cities from DB
   const [cityList, setCityList] = useState([]);
 
   const getCities = () => {
     axios.get('/get-cities').then((response) => {
       setCityList(response.data);
-      //console.log(response);
     });
   };
-  //===================================
 
-  // const displayCities = (cityList) => {
-  //   return cityList.map((val, key) => <FormOption value={val.id}>{val.name}</FormOption>);
-  // };
-
-  // var select = document.getElementById('city');
-  // var value = select.options[select.selectedIndex].value;
-
-  //VALIDATE NEW
   const initialValues = {
     username: '',
     email: '',
@@ -60,12 +45,6 @@ function Register() {
   const [isSubmit, setIsSubmit] = useState(false);
   const [selects, setSelects] = useState(1);
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setIsLoadiing(false);
-  //   }, 2500);
-  // });
-
   const [isLoading, setIsLoadiing] = useState(false);
 
   const loadScreen = (timeMS) => {
@@ -78,8 +57,6 @@ function Register() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
-    //setFormErrors(formErrors);
-    //console.log(formValues);
   };
 
   const handleSubmit = (e) => {
@@ -90,17 +67,10 @@ function Register() {
     setIsSubmit(true);
   };
 
-  //console.log('Form errors outside handle submit', formErrors);
-
   useEffect(() => {
     loadScreen(700);
     getCities();
-    //setLoading(true);
     return () => {
-      console.log(
-        '!!!!!!!!!!!!!!!!!!!!!!!!!!CLEANUP REGISTER!!!!!!!!!!!!!!!!!!!'
-      );
-      //isMounted = false;
       setIsLoadiing(false);
     };
   }, []);
@@ -117,7 +87,6 @@ function Register() {
             fname: formValues.fname,
             lname: formValues.lname,
           });
-          console.log('Registered successfully!');
           navigate('/login');
         } catch (error) {
           console.log('Register error: ', error);
@@ -126,8 +95,6 @@ function Register() {
       registerUser();
     }
   }, [formErrors]);
-
-  //console.log('=== Form errors before RETURN', formErrors.username);
 
   return (
     <>
@@ -220,7 +187,6 @@ function Register() {
                   onChange={handleChange}
                 ></FormInput>
                 <FormError>{formErrors.lname}</FormError>
-                {/* <Text style={{ color: 'orange' }}>* - Pole wymagane</Text> */}
                 <Text>
                   Tworząc konto, wyrażasz zgodę na nasze{' '}
                   <FormLink href='#'>Warunki & Prywatność</FormLink>

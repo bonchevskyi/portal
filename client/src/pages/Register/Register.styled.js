@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-//import { Container } from '../../GlobalStyles';
-//import { Link } from 'react-router-dom';
 import { DEFAULT, DARK, BRIGHT } from '../../GlobalStyles';
 
 export const FormWrap = styled.div`
@@ -11,7 +9,6 @@ export const FormWrap = styled.div`
 
 export const FormContent = styled.div`
   /* border: 2px solid red; */
-
   height: 100%;
   margin: auto;
   width: 450px;
@@ -46,7 +43,6 @@ export const FormContainer = styled.div`
 
 export const FormLabel = styled.label`
   //border: 1px solid red;
-
   flex-direction: column;
   font-size: 20px;
   color: #fff;
@@ -94,10 +90,10 @@ export const FormError = styled.p`
 `;
 
 export const ErrorWrap = styled.div`
+  //border: solid 1px red;
   margin-bottom: 10px;
   margin-top: 5px;
   padding: 0px;
-  //border: solid 1px red;
 `;
 
 export const FormButton = styled.button`
@@ -124,8 +120,6 @@ export const FormSignIn = styled(FormContainer)`
   background-color: #f1f1f1;
   text-align: center;
 `;
-
-// CSOACOA
 
 export const Text = styled.p`
   text-align: center;
