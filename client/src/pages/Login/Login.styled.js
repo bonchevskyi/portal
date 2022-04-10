@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-//import { Container } from '../../GlobalStyles';
-//import { Link } from 'react-router-dom';
 import { DEFAULT, DARK, BRIGHT } from '../../GlobalStyles';
 
 export const FormWrap = styled.div`
@@ -11,8 +9,6 @@ export const FormWrap = styled.div`
 
 export const FormContent = styled.div`
   //border: 2px solid red;
-  /* border: 1px solid blue; */
-
   height: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -121,8 +117,6 @@ export const FormSignIn = styled(FormContainer)`
   background-color: #f1f1f1;
   text-align: center;
 `;
-
-// CSOACOA
 
 export const Text = styled.p`
   text-align: center;
