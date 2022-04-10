@@ -13,7 +13,6 @@ export const CreateFormContent = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  /* border: 1px solid blue; */
   align-items: center;
 
   height: 100%;
@@ -39,13 +38,9 @@ export const CreateFormH1 = styled.div`
 export const CreateForm = styled.form`
   //border: 2px solid blue;
   width: 100%;
-  /* border: 1px solid red; */
-  //box-sizing: border-box;
-  //justify-content: center;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  /* border: 1px solid blue; */
   align-items: center;
 `;
 
@@ -66,11 +61,7 @@ export const CreateFormLabel = styled.label`
 export const CreateFormInput = styled.input`
   border-radius: 15px;
   width: 750px;
-  //width: 100%;
   padding: 15px;
-  //text-align: center;
-  //padding: 0;
-  //margin: 5px 0 22px 0;
   margin-bottom: 10px;
   display: inline-block;
   border: none;
@@ -143,34 +134,24 @@ export const CreateText = styled.p`
 `;
 
 export const CreateWrapSingleSelect = styled.div`
-  //width: 420px;
   width: calc(70vw / 3);
-  //min-width: 100%;
-  //max-width: calc(70vw / 3);
-
   justify-content: center;
   align-items: center;
-
   padding: 0 1px;
-  //border: 2px solid purple;
 
   @media screen and (max-width: 1270px) {
     max-width: 440px;
-    //width: 100%;
     flex-direction: column;
     margin: 0;
   }
 
   @media screen and (max-width: 890px) {
-    //max-width: 440px;
-    //width: 100%;
     flex-direction: column;
   }
 `;
 
 export const NewCustomSelect = styled(Select)`
   * {
-    //font-size: 16px;  //PROB IS DEFAULT
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -179,43 +160,31 @@ export const NewCustomSelect = styled(Select)`
     cursor: text;
   }
   .Select__input-container {
-    //color: white;
     color: black;
-    //background: red;
   }
 
-  //MAIN WIDTH HERE!!!!
-
   .Select__control {
-    //margin: auto;
     background: white;
-    //width: 100%; //MOD
-    //width: calc(100vw - 1344px);
     width: 750px;
     border-radius: 15px;
     border: none;
     display: flex;
     flex-direction: row;
-    //overflow: hidden;
   }
 
   .Select__container {
-    //color: red;
-    //background: blue;
     display: flex;
     color: black;
     width: 300px;
   }
 
   .Select__placeholder {
-    //font-size: smaller;
     display: flex;
     color: black;
     width: 300px;
   }
 
   .Select__indicator-separator {
-    // display: none;
     color: black;
     background: black;
   }
@@ -229,10 +198,8 @@ export const NewCustomSelect = styled(Select)`
 
   .Select__control--menu-is-open {
     color: white;
-    //background: red;
   }
 
-  /* Top selected name CHANGE!!!!!!!!!!! */
   .Select__single-value {
     color: black;
     text-align: center;
@@ -262,7 +229,6 @@ export const NewCustomSelect = styled(Select)`
   /* DROPDOWN MENU */
 
   .Select__option--is-focused {
-    //color: black;
     transition: all 0.3s ease-out;
     background: ${DEFAULT};
   }
@@ -277,11 +243,6 @@ export const WrapperTextArea = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  //text-align: center;
-  //margin: auto;
-  //color: black;
-  //font-size: 14px;
-
   width: 100%;
   width: 750px;
   border-radius: 15px;
@@ -290,20 +251,13 @@ export const WrapperTextArea = styled.div`
 `;
 
 export const TextAreaLabelH2 = styled.h2`
-  //text-align: center;
-  //margin: auto;
-
   color: ${(props) => (props.color === 'red' ? 'red' : 'black')};
-  //color: black;
   font-size: 16px;
   text-align: center;
 `;
 
 export const TextArea = styled.textarea`
-  //text-align: center;
-
   width: 100%;
-  //height: 58px;
   height: 330px;
   margin: auto;
   color: black;
@@ -316,9 +270,6 @@ export const TextArea = styled.textarea`
   margin-top: 10px;
   border-color: green;
   max-height: 330px;
-
-  //white-space: pre-wrap;
-  //word-wrap: break-word; //new
 
   :is(:focus, :valid) {
     border-width: 2px;
