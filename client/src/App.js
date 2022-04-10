@@ -1,9 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import GlobalStyles from './GlobalStyles';
-//import Layout from './components/Layout';
+import React from 'react';
 import useAuth from './hooks/useAuth';
-import Loading from './components/Loading/Loading';
-import LoadingFull from './components/Loading/LoadingFull';
 import Home from './pages/Home/Home';
 import Post from './pages/Post/Post';
 import Cities from './pages/Cities/Cities';
@@ -14,7 +10,6 @@ import Login from './pages/Login/Login';
 import Profile from './pages/Profile/Profile';
 import EditProfile from './pages/EditProfile/EditProfile';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useNavigate, useParams } from 'react-router-dom';
 import RequireAuth from './components/RequireAuth';
 import Dashboard from './pages/Dashboard/Dashboard';
 import NewPost from './pages/NewPost/NewPost';
@@ -28,33 +23,8 @@ const ROLES = {
   Admin: 1,
 };
 
-//console.log(ROLES.User);
-//console.log(ROLES.User);
-
 function App() {
   const { auth } = useAuth();
-
-  // const [isLoading, setIsLoadiing] = useState(false);
-
-  // const loadScreen = (timeMS) => {
-  //   setIsLoadiing(true);
-  //   setTimeout(() => {
-  //     setIsLoadiing(false);
-  //   }, timeMS);
-  // };
-
-  // useEffect(() => {
-  //   loadScreen(5000);
-  //   return () => {
-  //     setIsLoadiing(false);
-  //   };
-  // }, []);
-
-  {
-    /* {isLoading ? (
-        <LoadingFull />
-      ) : ( )} */
-  }
 
   return (
     <>
