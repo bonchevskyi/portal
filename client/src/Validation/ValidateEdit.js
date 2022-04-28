@@ -10,7 +10,8 @@ export default function ValidateEdit(values) {
       });
       if (response?.data[0]?.uniqueInfo === 3) {
         errors.email = 'Email jest już zarejestrowany!';
-        return errors;
+        //console.log('Email AAAAAAA jest już zarejestrowany!');
+        //return errors;
       } else if (response?.data[0]?.uniqueInfo === 4) {
         //console.log('Email is UNIQUE');
       }

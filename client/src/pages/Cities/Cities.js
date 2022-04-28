@@ -20,7 +20,7 @@ function Cities() {
     try {
       const response = await axios.get('/get-cities');
       setCityList(response?.data);
-      console.log('DATA:', response?.data);
+      //console.log('DATA:', response?.data);
     } catch (error) {
       console.log('Cities GET data ERROR: ', error);
     }

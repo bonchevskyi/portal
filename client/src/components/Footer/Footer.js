@@ -24,9 +24,9 @@ function Footer() {
           <FooterLinksWrapper>
             <FooterLinkItems>
               <FooterLinkTitle>FAQ</FooterLinkTitle>
-              <FooterLink to='/'>Czemu powstał?</FooterLink>
-              <FooterLink to='/'>Dla kogo jest?</FooterLink>
-              <FooterLink to='/'>FAQ</FooterLink>
+              <FooterLink to='/faq'>Czemu powstał?</FooterLink>
+              <FooterLink to='/faq'>Dla kogo jest?</FooterLink>
+              <FooterLink to='/faq'>Jak to działa?</FooterLink>
             </FooterLinkItems>
             <FooterLinkItems>
               <FooterLinkTitle>Masz pytania?</FooterLinkTitle>
@@ -38,9 +38,9 @@ function Footer() {
           <FooterLinksWrapper>
             <FooterLinkItems>
               <FooterLinkTitle>Popularne miasta</FooterLinkTitle>
-              <FooterLink to='/'>Rzeszów</FooterLink>
-              <FooterLink to='/'>Kraków</FooterLink>
-              <FooterLink to='/'>Warszawa</FooterLink>
+              <FooterLink to='/?city=21'>Rzeszów</FooterLink>
+              <FooterLink to='/?city=12'>Kraków</FooterLink>
+              <FooterLink to='/?city=26'>Warszawa</FooterLink>
             </FooterLinkItems>
             <FooterLinkItems>
               <FooterLinkTitle>Kontakt</FooterLinkTitle>

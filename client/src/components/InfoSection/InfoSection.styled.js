@@ -11,6 +11,7 @@ export const InfoSec = styled.div`
 `;
 
 export const InfoContainer = styled.div`
+  //border: solid 1px red;
   //z-index: 0;
   display: flex;
   justify-content: center;
@@ -55,6 +56,7 @@ export const InfoColumn = styled.div`
 
   @media screen and (max-width: 768px) {
     max-width: 100%;
+    height: 100%;
     flex-basis: 100%;
     display: flex;
     justify-content: center;
@@ -80,11 +82,16 @@ export const InfoButton = styled.button`
   width: 600px;
   height: 50px;
   font-size: 30px;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 10px;
   border-radius: 15px;
   border: none;
   cursor: pointer;
 
   @media screen and (max-width: 768px) {
+    font-size: 24px;
     padding-bottom: 20px;
     width: 100%;
   }

@@ -423,7 +423,7 @@ app.post('/unique', (req, res) => {
     sqlQuery = sqlQueryEmail;
     params = [email];
   } else {
-    console.log('WHAT is going on?');
+    //console.log('WHAT is going on?');
     if (err) throw err;
   }
 
@@ -431,7 +431,7 @@ app.post('/unique', (req, res) => {
     if (err) {
       console.log('Unique user error: ', err);
     } else if (result.length > 0) {
-      console.log('Result: ', result);
+      //console.log('Result: ', result);
       res.send(result);
     } else {
       console.log('else');

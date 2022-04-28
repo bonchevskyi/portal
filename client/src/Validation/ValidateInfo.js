@@ -12,8 +12,8 @@ export default function ValidateInfo(values) {
         username: values.username,
       });
       if (response?.data[0]?.uniqueInfo === 1) {
-        console.log('Username NOT OK');
-        errors.username = 'Username is already taken!';
+        //console.log('Username NOT OK');
+        errors.username = 'Taki użytkownik już istnieje!';
         return errors;
       } else if (response?.data[0]?.uniqueInfo === 2) {
         //console.log('Username is UNIQUE');
@@ -29,7 +29,7 @@ export default function ValidateInfo(values) {
         email: values.email,
       });
       if (response?.data[0]?.uniqueInfo === 3) {
-        console.log('email NOT OK');
+        //console.log('email NOT OK');
         errors.email = 'Email jest już zarejestrowany!';
         return errors;
       } else if (response?.data[0]?.uniqueInfo === 4) {

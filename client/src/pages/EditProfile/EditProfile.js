@@ -115,12 +115,12 @@ function EditProfile() {
     setisDisabledSave(true);
 
     if (isPassMenu === true) {
-      console.log('User wanted to save password');
+      //console.log('User wanted to save password');
       const resltPwd = validatePwd(formValues);
       setFormErrors(resltPwd);
       setIsSubmit(true);
     } else if (isPassMenu === false) {
-      console.log('User wanted to save data!');
+      //console.log('User wanted to save data!');
       const resltData = validateData(formValues);
       setFormErrors(resltData);
       setIsSubmit(true);
@@ -134,7 +134,7 @@ function EditProfile() {
     getCities();
 
     return () => {
-      console.log('cleanup edit');
+      //console.log('cleanup edit');
       //setInputCity({});
       //setCityOptions(initialValuesCity);
       //setIsLoadiing(false);
@@ -151,7 +151,7 @@ function EditProfile() {
       formValues.password.trim() ||
       formValues.password2.trim()
     ) {
-      console.log('HAVE DATA');
+      //console.log('HAVE DATA');
       setisDisabledSave(false);
     }
     return () => {
@@ -162,8 +162,8 @@ function EditProfile() {
 
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
-      console.log('=====0 ERRORS======');
-      console.log('Pass menu?', isPassMenu);
+      //console.log('=====0 ERRORS======');
+      //console.log('Pass menu?', isPassMenu);
       if (isPassMenu === true) {
         const changePassword = async () => {
           try {
@@ -172,14 +172,15 @@ function EditProfile() {
               user_idPass: auth.user_id,
             });
             const data = response.data;
-            console.log(data);
+            //console.log(data);
           } catch (error) {
             console.log('Password change error: ', error);
           }
         };
         changePassword();
-        navigate(`/profile/${usernamePar}`);
-        alert('SENDING PASSWORD');
+        //navigate(`/profile/${usernamePar}`);
+        navigate(`/`);
+        alert('Password changed successfully!');
       } else if (isPassMenu === false) {
         var objToSend = {};
 
@@ -199,6 +200,26 @@ function EditProfile() {
           objToSend.city_id = inputCity.id;
         }
 
+        const checkUniqueEmail = async () => {
+          try {
+            const response = await axios.post('/unique', {
+              email: objToSend.email,
+            });
+            if (response?.data[0]?.uniqueInfo === 3) {
+              formErrors.email = 'Email jest już zarejestrowany!';
+              //console.log('Email jest już zarejestrowany!');
+              alert('Email jest już zarejestrowany!');
+              navigate(`/profile/${usernamePar}/edit`);
+              //return errors;
+            } else if (response?.data[0]?.uniqueInfo === 4) {
+              //console.log('Email is UNIQUE');
+            }
+          } catch (error) {
+            console.log(error);
+          }
+        };
+        checkUniqueEmail();
+
         const changeData = async () => {
           try {
             const response = await axios.post('/change-data', {
@@ -206,14 +227,14 @@ function EditProfile() {
               dataObj: objToSend,
             });
             const data = response.data;
-            console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>DATA WAS SENT');
+            //console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>DATA WAS SENT');
           } catch (error) {
             console.log('Data change error: ', error);
           }
         };
         changeData();
 
-        alert('Sending updated data! Redirecting...');
+        alert('Przesyłanie wprowadzonych danych...');
         navigate(`/profile/${usernamePar}`);
       }
     }

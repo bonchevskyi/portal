@@ -108,7 +108,7 @@ const Dashboard = () => {
   };
 
   const handleMenuOpenCity = () => {
-    console.log('MENU City was OPENED');
+    //console.log('MENU City was OPENED');
     //setisDisabledUni(true);
     //setisDisabledDep(false);
   };
@@ -206,6 +206,7 @@ const Dashboard = () => {
     loadScreen(700);
 
     setPosts({});
+    setCanRender(false);
     setisDisabledUni(true);
     setisDisabledDep(true);
 
@@ -233,6 +234,8 @@ const Dashboard = () => {
         const data = response.data;
         if (data.length == 0) {
           setisDataZero(true);
+        } else {
+          setisDataZero(false);
         }
         const psts = Array.from(data);
         setPosts(psts);

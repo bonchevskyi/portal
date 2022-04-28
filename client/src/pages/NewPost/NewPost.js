@@ -70,11 +70,11 @@ function NewPost() {
   };
 
   const handleMenuOpenCity = () => {
-    console.log('MENU City was OPENED');
+    //console.log('MENU City was OPENED');
   };
 
   const handleChangeCity = (e) => {
-    console.log('City was selected');
+    //console.log('City was selected');
     setInputCity({ id: e.value, name: e.label });
     if (e.value) getUniversities(e.value);
     setInputUni({});
@@ -108,7 +108,7 @@ function NewPost() {
   };
 
   const handleChangeUniversity = (e) => {
-    console.log('Uni was selected');
+    //console.log('Uni was selected');
     setInputUni({ id: e.value, name: e.label });
     getDepartments(e.value);
     setInputDep({});
@@ -141,7 +141,7 @@ function NewPost() {
   };
 
   const handleChangeDepartment = (e) => {
-    console.log('Dep was selected');
+    //console.log('Dep was selected');
     setInputDep({ id: e.value, name: e.label });
     setisDisabledSearch(false);
   };
@@ -161,7 +161,7 @@ function NewPost() {
       Object.keys(inputUni).length > 0 &&
       Object.keys(inputDep).length > 0
     ) {
-      console.log('ALL VALUES SELECTED!');
+      //console.log('ALL VALUES SELECTED!');
       localStorage.removeItem('formValues');
 
       var username = auth.username;
@@ -181,7 +181,7 @@ function NewPost() {
         console.log('Create POST ERROR: ', error);
       }
     } else {
-      console.log('SELECT ALL VALUES!');
+      //console.log('SELECT ALL VALUES!');
     }
   };
 

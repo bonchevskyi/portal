@@ -122,8 +122,8 @@ function Navbar() {
 
   //CHECK LOGIN
   useEffect(() => {
-    console.log('WE ARE HERE: ', location?.pathname);
-    console.log('FROM:', from);
+    //console.log('WE ARE HERE: ', location?.pathname);
+    //console.log('FROM:', from);
 
     checkNavLogin();
 

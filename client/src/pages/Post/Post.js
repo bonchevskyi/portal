@@ -31,7 +31,7 @@ function Post() {
   const { auth } = useAuth();
 
   var params = useParams();
-  console.log('PARAMS: ', params);
+  //console.log('PARAMS: ', params);
   const postID = params.id;
 
   const [charCountArea, setCharCountArea] = useState(0);
@@ -146,7 +146,7 @@ function Post() {
         text: commentarea,
       });
       const data = response?.data;
-      console.log(data);
+      //console.log(data);
       getPostReplies();
       navigate(`/post/${postID}`);
     } catch (error) {
